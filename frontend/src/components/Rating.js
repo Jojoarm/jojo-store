@@ -1,4 +1,5 @@
-function Rating({ rating, numReviews }) {
+function Rating(props) {
+  const { rating, numReviews, caption } = props;
   return (
     <div className="rating">
       <span>
@@ -56,9 +57,12 @@ function Rating({ rating, numReviews }) {
           }
         />
       </span>
-      <span> {numReviews} reviews</span>
+      {caption ? (
+        <span>{caption}</span>
+      ) : (
+        <span>{' ' + numReviews + ' reviews'}</span>
+      )}
     </div>
   );
 }
-
 export default Rating;
